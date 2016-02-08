@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div>
+      <span>First Name:</span><input ng-model="profile.user.FirstName"></input>
+    </div>
+    <div>
+      <span>Last Name:</span><input ng-model="profile.user.LastName"></input>
+    </div>
+    <div>
+      <span>In-Game Name:</span><input ng-model="profile.user.InGameName"></input>
+    </div>
+    <div>
+      <span>Display Name:</span><input ng-model="profile.user.DisplayName"></input>
+    </div>
+    <div>
+      <span>Email:</span><span>{{profile.user.Email}}</span>
+    </div>
+
+    <div>
+      <paper-button ng-click="profile.update()" raised>Save</paper-button>
+    </div>
+
+    <div>
+      <snaga-admin-switch profile-user="profile.user"></snaga-admin-switch>
+    </div>
+
+	</div>
+</div>
