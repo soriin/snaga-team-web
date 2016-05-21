@@ -1,41 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
   <base href="./">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width" initial-scale="1.0">
-  <meta name="description" content="An opinionated AngularJS skeleton for Brunch">
-  <meta name="author" content="Row1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find and plan for multiplayer events.">
+  <meta name="author" content="Soriin">
 
-  <title >Brunch Arrogantular :: {{$state.current.data.pageTitle}}</title>
+  <title>Snaga&nbsp;Team</title>
   <link rel="stylesheet" href="stylesheets/vendor.css?DIGEST">
   <link rel="stylesheet" href="stylesheets/app.css?DIGEST">
 </head>
 
-<body layout="column">
+<body ng-controller="AppCtrl as app">
 
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <span><a ui-sref='home'>Arrogantular</a></span>
-      <!-- fill up the space between left and right area -->
-      <span flex></span>
-      <md-button class="md-primary md-raised md-hue-1 md-button" ui-sref="home" ui-sref-active="md-accent">
-        Home
-      </md-button>
-      <md-button class="md-primary md-raised md-hue-1 md-button" ui-sref="posts" ui-sref-active="md-accent">
-        Posts
-      </md-button>      
-    </div>
-  </md-toolbar>
-
-  <md-content layout="column" flex class="md-padding" ng-class="$state.current.data.viewClass" ui-view="main">
-  </md-content>
+  <div ui-view></div>
 
   <script src="javascript/vendor.js?DIGEST"></script>
   <script src="javascript/templates.js?DIGEST"></script>
   <script src="javascript/app.js?DIGEST"></script>
+  <script >
+    window.___gcfg = {
+      lang: 'zh-CN',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+  <script type='text/javascript'>
+    // Manually bootstrap angular so that I can check for whether or not the user is already logged in
+    // to google provider and had given us prior access.
+    function onLoadCallback(){
+      gapi.load('auth2', function() {
+        gapi.auth2.init({client_id: '591560570540-9o9v5iek3ig83311gpna7kn6kk1qu5ea.apps.googleusercontent.com', scope: 'profile'}).then( function() {
+          angular.element(document).ready(function() {
+            angular.bootstrap(document, ['app']);
+          });
+        })
+      });
+    }
+
+  </script>
 </body>
 
 </html>

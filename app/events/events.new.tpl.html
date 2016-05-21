@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-12">
+		<dl>
+			<dd>
+				<snaga-input-box label='Title' model="event.Title" />
+			</dd>
+			<dd>
+  				<snaga-input-box label='Date' model="event.PlannedDate" />
+			</dd>
+	    <dd>
+  				<snaga-input-box label='Location' model="event.Location" />
+			</dd>
+	    <dd>
+  				<snaga-input-box label='Location Details' model="event.LocationSpecific" />
+			</dd>
+		</dl>
+    <div>
+      <paper-button class="snaga-btn" ng-click="event.Create()" raised>Create</paper-button>
+    </div>
+	</div>
+</div>
